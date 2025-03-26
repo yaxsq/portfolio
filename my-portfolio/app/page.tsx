@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="relative w-full h-[300vh] bg-black text-white">
       {/* Background Stars */}
-      <motion.div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ y: starsY }}>
+      <motion.div className="absolute inset-0 h-[400vh] overflow-hidden pointer-events-none" style={{ y: starsY }}>
         {staticStars.map((star) => (
           <div key={star.id} className="absolute bg-white rounded-full" style={{
             width: `${star.size}px`, height: `${star.size}px`, top: `${star.y}%`, left: `${star.x}%`, opacity: Math.random() * 0.8 + 0.2,
@@ -81,11 +81,13 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-purple-400">Work Experience</h2>
         <div className="grid grid-cols-2 gap-6 mt-6 max-w-5xl">
           <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
-            <h3 className="font-bold text-lg text-white">Teaching Assistant - AST-152</h3>
+            <h3 className="font-bold text-lg text-white">Institute of Business Administration</h3>
+            <h3 className="font-bold text-lg text-white">Teaching Assistant - Introduction to Astronomy</h3>
             <p className="text-gray-300">Conducted tutorials for 150+ students, designed and graded assignments to enhance comprehension.</p>
           </div>
           <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
-            <h3 className="font-bold text-lg text-white">WWF Pakistan Eco Intern</h3>
+            <h3 className="font-bold text-lg text-white">WWF Pakistan</h3>
+            <h3 className="font-bold text-lg text-white">Eco Intern</h3>
             <p className="text-gray-300">Surveyed sustainable practices, developed strategies, and created engaging infographics to spread awareness.</p>
           </div>
         </div>
@@ -95,12 +97,13 @@ export default function Home() {
       <section id="about" className="min-h-screen flex flex-col items-center justify-center px-6">
         <h2 className="text-4xl font-bold text-purple-400">About Me</h2>
         <p className="mt-4 text-lg text-gray-300 text-center">
-          BS Computer Science | IBA | Space Enthusiast | Security & AI Developer
+          Computer Science Junior at IBA | CyberSecurity | Space Enthusiast
         </p>
         <div className="mt-4 flex space-x-4">
           <a href="https://www.linkedin.com/in/shazain/" className="text-blue-400" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
+          <a> | </a>
           <a href="http://github.com/yaxsq" className="text-blue-400" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
