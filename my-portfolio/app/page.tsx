@@ -90,6 +90,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* About Me Section */}
+      <section id="about" className="min-h-screen flex flex-col items-center justify-center px-6">
+        <h2 className="text-4xl font-bold text-purple-400">About Me</h2>
+        <p className="mt-4 text-lg text-gray-300 text-center">
+          BS Computer Science | IBA | Space Enthusiast | Security & AI Developer
+        </p>
+        <div className="mt-4 flex space-x-4">
+          <a href="https://www.linkedin.com/in/shazain/" className="text-blue-400" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href="http://github.com/yaxsq" className="text-blue-400" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </div>
+      </section>
+
     </main>
   );
 }
