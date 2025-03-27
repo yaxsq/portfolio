@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import ibaLogo from "./iba-logo.png";
+import wwfLogo from "./wwf-logo.png";
+
+
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -11,7 +16,7 @@ export default function Home() {
   const headerGlow = useTransform(scrollY, [500, 800], ["0%", "100%"]);
 
   // Static background stars reposition dynamically when scrolling
-  const staticStars = Array.from({ length: 100 }).map((_, i) => ({
+  const staticStars = Array.from({ length: 2500 }).map((_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -21,8 +26,8 @@ export default function Home() {
   return (
     <main className="relative w-full h-[300vh] bg-black text-white">
       {/* Background Stars */}
-      <motion.div className="absolute inset-0 h-[400vh] overflow-hidden pointer-events-none" style={{ y: starsY }}>
-        {staticStars.map((star) => (
+      <motion.div className="absolute inset-0 h-[435vh] overflow-hidden pointer-events-none" style={{ y: starsY }}>
+      {staticStars.map((star) => (
           <div key={star.id} className="absolute bg-white rounded-full" style={{
             width: `${star.size}px`, height: `${star.size}px`, top: `${star.y}%`, left: `${star.x}%`, opacity: Math.random() * 0.8 + 0.2,
           }} />
@@ -79,22 +84,46 @@ export default function Home() {
       {/* Work Experience Section */}
       <section id="work" className="h-screen flex flex-col items-center justify-center px-6">
         <h2 className="text-4xl font-bold text-purple-400">Work Experience</h2>
+
         <div className="grid grid-cols-2 gap-6 mt-6 max-w-5xl">
-          <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
-            <h3 className="font-bold text-lg text-white">Institute of Business Administration</h3>
-            <h3 className="font-bold text-lg text-white">Teaching Assistant - Introduction to Astronomy</h3>
-            <p className="text-gray-300">Conducted tutorials for 150+ students, designed and graded assignments to enhance comprehension.</p>
+          
+          {/* Teaching Assistant - IBA */}
+          <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg flex items-center space-x-4">
+            {/* Logo on the Left */}
+            <Image src={ibaLogo} alt="IBA Logo" className="h-16 w-auto flex-shrink-0" width={64} height={64} />
+
+            {/* Text Content on the Right */}
+            <div className="flex flex-col">
+              <h3 className="font-bold text-lg text-white">Institute of Business Administration</h3>
+              <h4 className="font-semibold text-gray-300">Teaching Assistant - Introduction to Astronomy</h4>
+              <p className="text-gray-300 mt-2 leading-relaxed">
+                Conducted tutorials for 150+ students, designed and graded assignments to enhance comprehension while also instilling curiosity about the universe. 
+              </p>
+            </div>
           </div>
-          <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
-            <h3 className="font-bold text-lg text-white">WWF Pakistan</h3>
-            <h3 className="font-bold text-lg text-white">Eco Intern</h3>
-            <p className="text-gray-300">Surveyed sustainable practices, developed strategies, and created engaging infographics to spread awareness.</p>
+
+          {/* WWF Pakistan - Eco Intern */}
+          <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg flex items-center space-x-4">
+            {/* Logo on the Left */}
+            <Image src={wwfLogo} alt="WWF Logo" className="h-16 w-auto flex-shrink-0" width={64} height={64} />
+
+            {/* Text Content on the Right */}
+            <div className="flex flex-col">
+              <h3 className="font-bold text-lg text-white">WWF Pakistan</h3>
+              <h4 className="font-semibold text-gray-300">Eco Intern</h4>
+              <p className="text-gray-300 mt-2 leading-relaxed">
+                Surveyed sustainable practices, developed strategies, and spread awareness about the environment.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 
+
       {/* About Me Section */}
-      <section id="about" className="min-h-screen flex flex-col items-center justify-center px-6">
+      <section id="about" className="h-screen flex flex-col items-center justify-center px-6 bg-black">
+
         <h2 className="text-4xl font-bold text-purple-400">About Me</h2>
         <p className="mt-4 text-lg text-gray-300 text-center">
           Computer Science Junior at IBA | CyberSecurity | Space Enthusiast
@@ -109,6 +138,13 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="w-full py-4 bg-black text-gray-400 text-center border-t border-gray-700">
+        <p>WWF® and ©1986 Panda Symbol are owned by WWF. All rights reserved.</p>
+        <p>IBA Logo is the property of the Institute of Business Administration, Karachi. All rights reserved.</p>
+      </footer>
+
 
     </main>
   );
